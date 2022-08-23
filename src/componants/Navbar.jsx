@@ -9,6 +9,7 @@ import {
   Input,
   Spacer,
   Link,
+  SimpleGrid,
 } from "@chakra-ui/react";
 import React from "react";
 import { BsSearch } from "react-icons/bs";
@@ -53,7 +54,7 @@ const Navbar = () => {
             <VscLock fontSize="1.6rem" />
           </Flex>
         </Flex>
-        <Flex justify="space-around" pb={0}>
+        <SimpleGrid spacing={1} justify="center" pb={0} columns={[3, 3, 5, 11]}>
           <Link
             to="/"
             as={ReachLink}
@@ -89,10 +90,10 @@ const Navbar = () => {
           <Link as={ReachLink} to="/" _hover={buttonhover}>
             Gifts
           </Link>
-          <Link as={ReachLink} to="/" _hover={buttonhover}>
+          <Link as={ReachLink} color="global.blue" to="/" _hover={buttonhover}>
             Flash Events
           </Link>
-        </Flex>
+        </SimpleGrid>
       </Stack>
     </div>
   );

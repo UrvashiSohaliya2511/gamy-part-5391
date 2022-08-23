@@ -1,11 +1,11 @@
 import React from "react";
-import { Box, Heading, Stack } from "@chakra-ui/react";
+import { Box, Heading, SimpleGrid, Stack } from "@chakra-ui/react";
 import { Image, Flex, Text, Button, Input, Link } from "@chakra-ui/react";
 import { Link as ReachLink } from "react-router-dom";
 import { ImMobile2, ImFacebook, ImTwitter, ImPinterest2 } from "react-icons/im";
 import { FaInstagram } from "react-icons/fa";
 import { IoIosArrowUp } from "react-icons/io";
-import { textHover } from "../styles/styles.js";
+import { textHover, buttonfilled } from "../styles/styles.js";
 
 const Footer = () => {
   return (
@@ -33,11 +33,7 @@ const Footer = () => {
             color="white"
             bg="global.blue"
             fontWeight="normal"
-            _hover={{
-              backgroundColor: "white",
-              color: "global.blue",
-              border: "1px solid ",
-            }}
+            _hover={buttonfilled}
           >
             Sign Up
           </Button>
@@ -52,8 +48,8 @@ const FooterList = () => {
   return (
     <>
       <Stack textAlign="left" bg="#f9f9f9" p={7}>
-        <Flex gap={5}>
-          <Stack w="20%">
+        <SimpleGrid justify="space-between" columns={[1, 3, 4, 6]}>
+          <Stack>
             <Heading size="sm" fontWeight="440">
               Customer Service
             </Heading>
@@ -76,7 +72,7 @@ const FooterList = () => {
               Contact Us
             </Link>
           </Stack>
-          <Stack w="20%">
+          <Stack>
             <Heading size="sm" fontWeight="440">
               About Us
             </Heading>
@@ -105,7 +101,7 @@ const FooterList = () => {
               Nordy Podcast
             </Link>
           </Stack>
-          <Stack w="20%">
+          <Stack>
             <Heading size="sm" fontWeight="440">
               Nordstrom Rack & The Community
             </Heading>
@@ -125,7 +121,7 @@ const FooterList = () => {
               Donate Clothes
             </Link>
           </Stack>
-          <Stack w="20%">
+          <Stack>
             <Heading size="sm" fontWeight="440">
               Nordstrom Card
             </Heading>
@@ -139,7 +135,7 @@ const FooterList = () => {
               Manage my NordStrom Card
             </Link>
           </Stack>
-          <Stack w="20%">
+          <Stack>
             <Heading size="sm" fontWeight="440">
               NordStrom,Inc.
             </Heading>
@@ -162,7 +158,7 @@ const FooterList = () => {
               NordStrom Media Network
             </Link>
           </Stack>
-          <Stack w="20%">
+          <Stack>
             <Link to="#" _hover={textHover}>
               <Flex align="center">
                 <ImMobile2 fontSize="24px" />
@@ -184,11 +180,11 @@ const FooterList = () => {
               </Link>
             </Flex>
           </Stack>
-          <Box bg="white" h="60px" p={1}>
+          {/* <Box bg="white" w="20%" h="60px" p={1}>
             <IoIosArrowUp fontSize="30px" bg="white" /> Top
-          </Box>
-        </Flex>
-        <Flex fontSize="12px" pt={5} gap={10}>
+          </Box> */}
+        </SimpleGrid>
+        <SimpleGrid fontSize="12px" pt={5} gap={5} columns={[2, 2, 4, 8]}>
           <Link _hover={textHover} to="#" as={ReachLink}>
             Privacy
           </Link>
@@ -207,7 +203,7 @@ const FooterList = () => {
           <Link _hover={textHover} to="#" as={ReachLink}>
             ©2022 Nordstrom Rack
           </Link>
-        </Flex>
+        </SimpleGrid>
       </Stack>
     </>
   );
