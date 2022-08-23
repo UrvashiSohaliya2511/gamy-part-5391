@@ -6,7 +6,7 @@ const theme = extendTheme({
     heading: "Brandon Text,Arial,sans-serif",
     mono: "Brandon Text,Arial,sans-serif",
   },
-
+  lineHeight: " 1.6rem",
   colors: {
     global: {
       black: "#333",

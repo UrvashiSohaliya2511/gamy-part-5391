@@ -8,18 +8,15 @@ import {
   InputLeftElement,
   Input,
   Spacer,
-  Button,
+  Link,
 } from "@chakra-ui/react";
 import React from "react";
 import { BsSearch } from "react-icons/bs";
 import { IoIosArrowDown } from "react-icons/io";
 import { VscLock } from "react-icons/vsc";
+import { buttonhover } from "../styles/styles.js";
+import { Link as ReachLink } from "react-router-dom";
 const Navbar = () => {
-  const buttonhover = {
-    textUnderlineOffset: "4px",
-    textDecoration: "2px underline",
-  };
-
   return (
     <div>
       <Box bg="global.blue" color="white" p={2} fontSize="md">
@@ -28,8 +25,8 @@ const Navbar = () => {
           Nordstrom Rack or Nordstrom store. <u>Learn More</u>
         </Text>
       </Box>
-      <Stack p={5}>
-        <Flex align="center" pt={3} pb={5} borderBottom="1px solid #bbb">
+      <Stack p={7}>
+        <Flex align="center" pt={1} pb={5} borderBottom="1px solid #bbb">
           <Image
             w="7%"
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Nordstrom_Rack_logo_2021.svg/2560px-Nordstrom_Rack_logo_2021.svg.png"
@@ -57,96 +54,44 @@ const Navbar = () => {
           </Flex>
         </Flex>
         <Flex justify="space-around" pb={0}>
-          <Button
-            variant="ghost"
-            bg="none"
-            color="#d61f27"
+          <Link
+            to="/"
+            as={ReachLink}
+            style={{ color: "#d61f27" }}
             _hover={buttonhover}
-            fontWeight="normal"
           >
             Clearance
-          </Button>
-          <Button
-            variant="ghost"
-            bg="none"
-            color="global.black"
-            _hover={buttonhover}
-            fontWeight="normal"
-          >
+          </Link>
+          <Link as={ReachLink} to="/women" _hover={buttonhover}>
             Women
-          </Button>
-          <Button
-            bg="none"
-            color="global.black"
-            _hover={buttonhover}
-            fontWeight="normal"
-          >
+          </Link>
+          <Link as={ReachLink} to="/mens" _hover={buttonhover}>
             Men
-          </Button>
-          <Button
-            bg="none"
-            _hover={buttonhover}
-            color="global.black"
-            fontWeight="normal"
-          >
+          </Link>
+          <Link as={ReachLink} to="/" _hover={buttonhover}>
             Kids
-          </Button>
-          <Button
-            bg="none"
-            _hover={buttonhover}
-            color="global.black"
-            fontWeight="normal"
-          >
+          </Link>
+          <Link as={ReachLink} to="/" _hover={buttonhover}>
             Shoes
-          </Button>
-          <Button
-            bg="none"
-            _hover={buttonhover}
-            color="global.black"
-            fontWeight="normal"
-          >
+          </Link>
+          <Link as={ReachLink} to="/" _hover={buttonhover}>
             Activewear
-          </Button>
-          <Button
-            bg="none"
-            _hover={buttonhover}
-            color="global.black"
-            fontWeight="normal"
-          >
+          </Link>
+          <Link to="/" _hover={buttonhover}>
             Bags & Accessories
-          </Button>
-          <Button
-            bg="none"
-            _hover={buttonhover}
-            color="global.black"
-            fontWeight="normal"
-          >
+          </Link>
+          <Link as={ReachLink} to="/" _hover={buttonhover}>
             Home
-          </Button>
-          <Button
-            bg="none"
-            _hover={buttonhover}
-            color="global.black"
-            fontWeight="normal"
-          >
+          </Link>
+          <Link as={ReachLink} to="/" _hover={buttonhover}>
             Beauty
-          </Button>
-          <Button
-            bg="none"
-            _hover={buttonhover}
-            color="global.black"
-            fontWeight="normal"
-          >
+          </Link>
+          <Link as={ReachLink} to="/" _hover={buttonhover}>
             Gifts
-          </Button>
-          <Button
-            bg="none"
-            _hover={buttonhover}
-            color="global.blue"
-            fontWeight="normal"
-          >
+          </Link>
+          <Link as={ReachLink} to="/" _hover={buttonhover}>
             Flash Events
-          </Button>
+          </Link>
         </Flex>
       </Stack>
     </div>
