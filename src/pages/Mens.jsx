@@ -18,7 +18,6 @@ import {
   productList,
   advtbar2,
   advtbar,
-  trendingNext,
   secondlast,
   lastbar,
 } from "../componants/productlist.data";
@@ -51,7 +50,7 @@ const Mens = () => {
           <Link as={ReachLink} to="/men" color="global.blue" fontWeight="450">
             Men
           </Link>
-          <Link as={ReachLink} to="men/clothing" _hover={textHover}>
+          <Link as={ReachLink} to="/:menclothing" _hover={textHover}>
             Clothing
           </Link>
           <Link as={ReachLink} to="/" _hover={textHover}>
@@ -97,7 +96,7 @@ const Mens = () => {
                     <Image src={item.image} alt="xyz" />
                     <Link
                       as={ReachLink}
-                      to={`/men/${item.type}`}
+                      to={`/:men${item.type}`}
                       style={textHover}
                       color="global.blue"
                       fontSize="13px"

@@ -5,6 +5,7 @@ import Signup from "../pages/Signup";
 import Login from "../pages/Login";
 import Mens from "../pages/Mens";
 import Women from "../pages/Women";
+import ProductListPage from "../pages/ProductListPage";
 const Allroutes = () => {
   return (
     <Routes>
@@ -13,6 +14,7 @@ const Allroutes = () => {
       <Route path="/login" element={<Login />} />
       <Route path="/mens" element={<Mens />} />
       <Route path="/women" element={<Women />} />
+      <Route path="/:category" element={<ProductListPage />} />
     </Routes>
   );
 };
