@@ -9,7 +9,7 @@ import {
   SimpleGrid,
   Spacer,
 } from "@chakra-ui/react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { GrStar } from "react-icons/gr";
 import {
   MdOutlineArrowForwardIos,
@@ -17,18 +17,23 @@ import {
 } from "react-icons/md";
 function Topslider({ sliderdata }) {
   let i = 0;
+  let ref = useRef();
+
   const [data, setdata] = useState(sliderdata[0]);
   const interval = () => {
-    setInterval(() => {
+    if (ref !== undefined) return;
+    ref = setInterval(() => {
       if (i === sliderdata.length) {
         i = 0;
       }
       setdata(sliderdata[i]);
+      // console.log(i, sliderdata.length);
       i++;
-    }, 5000);
+    }, 3000);
   };
   useEffect(() => {
     interval();
+    ref = undefined;
   }, []);
 
   return (
@@ -37,7 +42,50 @@ function Topslider({ sliderdata }) {
         <Image src={data.image} alt="title" />
         <Box>
           <Heading
-            mt={"-70px"}
+            mt={[-20]}
+            size="lg"
+            color="global.black"
+            fontWeight="450"
+            pb={3}
+          >
+            {data.title}
+          </Heading>
+          <Text>{data.text}</Text>
+          <Link color="global.blue" textDecoration="underline">
+            Shop know
+          </Link>
+        </Box>
+      </Stack>
+    </>
+  );
+}
+function Secondslider({ sliderdata }) {
+  let ref = useRef();
+  let i = 0;
+  const [data, setdata] = useState(sliderdata[0]);
+  const interval = () => {
+    if (ref !== undefined) return;
+    ref = setInterval(() => {
+      if (i === sliderdata.length) {
+        i = 0;
+      }
+      setdata(sliderdata[i]);
+      // console.log(i, sliderdata.length);
+      i++;
+    }, 5000);
+  };
+  useEffect(() => {
+    interval();
+    ref = undefined;
+  }, []);
+
+  return (
+    <>
+      <Stack textAlign="left">
+        <Image src={data.image} alt="title" />
+        <Box>
+          <Heading
+            mt={[-20]}
             size="lg"
             color="global.black"
             fontWeight="450"
@@ -139,7 +187,7 @@ function AdvtSlider({ data }) {
   const [page, setpage] = useState(0);
 
   useEffect(() => {
-    console.log(page);
+    // console.log(page);
   }, [page]);
   const handlenext = () => {
     if (page === data.length - 1) {
@@ -163,7 +211,7 @@ function AdvtSlider({ data }) {
   return (
     <>
       <Stack>
-        <SimpleGrid columns={[1, 1, 2, 3]} gap={7} textAlign="left">
+        <SimpleGrid columns={[3, 3, 3, 3]} gap={7} textAlign="left">
           {data &&
             data[page].map((item, i) => {
               return (
@@ -206,7 +254,7 @@ const Stars = ({ total }) => {
     if (i < total) {
       return <GrStar key={i} color="#00819d" fontSize="13px" />;
     } else {
-      return <GrStar key={i} color="#e3e3e3" fontSize="13px" />;
+      return <GrStar key={i + 1} color="#e3e3e3" fontSize="13px" />;
     }
   });
   return (
@@ -215,4 +263,4 @@ const Stars = ({ total }) => {
     </>
   );
 };
-export { Topslider, Productbar, Stars, AdvtSlider };
+export { Topslider, Productbar, Stars, AdvtSlider, Secondslider };
