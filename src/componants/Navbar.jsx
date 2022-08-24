@@ -17,7 +17,12 @@ import { IoIosArrowDown } from "react-icons/io";
 import { VscLock } from "react-icons/vsc";
 import { buttonhover } from "../styles/styles.js";
 import { Link as ReachLink } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 const Navbar = () => {
+  const handleImage = () => {
+    console.log("123");
+    <Navigate to="/" replace={true} />;
+  };
   return (
     <div>
       <Box bg="global.blue" color="white" p={2} fontSize="md">
@@ -28,10 +33,14 @@ const Navbar = () => {
       </Box>
       <Stack p={7}>
         <Flex align="center" pt={1} pb={5} borderBottom="1px solid #bbb">
-          <Image
-            w="7%"
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Nordstrom_Rack_logo_2021.svg/2560px-Nordstrom_Rack_logo_2021.svg.png"
-          />
+          <Link w="7%" to="/" as={ReachLink}>
+            <Image
+              w="100%"
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Nordstrom_Rack_logo_2021.svg/2560px-Nordstrom_Rack_logo_2021.svg.png"
+              onClick={handleImage}
+            />
+          </Link>
+
           <Spacer />
 
           <InputGroup w="60%">
@@ -79,7 +88,7 @@ const Navbar = () => {
             Activewear
           </Link>
           <Link to="/" _hover={buttonhover}>
-            Bags & Accessories
+            Bags
           </Link>
           <Link as={ReachLink} to="/" _hover={buttonhover}>
             Home

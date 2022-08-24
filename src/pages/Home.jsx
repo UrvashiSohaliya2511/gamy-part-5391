@@ -14,6 +14,7 @@ import {
   Text,
   Link,
   Flex,
+  Spacer,
   SimpleGrid,
 } from "@chakra-ui/react";
 
@@ -21,6 +22,7 @@ import {
   Topslider,
   Productbar,
   AdvtSlider,
+  Secondslider,
 } from "../componants/Homepage.Sliders";
 const Home = () => {
   return (
@@ -72,11 +74,15 @@ const Home = () => {
           Here Today, Gone in a Flash
         </Heading>
         <AdvtSlider data={AdvtSliderdata} />
-        <Topslider sliderdata={sliderdataClothes} />
+        <Secondslider sliderdata={sliderdataClothes} />
         <Heading size="lg" color="global.black" fontWeight="450" pb={3}>
           Active Styles for Every Day
         </Heading>
-        <SimpleGrid columns={[1, 1, 2, 2]} textAlign="left">
+        <SimpleGrid
+          columns={[1, 1, 2, 2]}
+          textAlign="left"
+          justify="space-between"
+        >
           <Box>
             <Image
               src="https://n.nordstrommedia.com/id/6343d2d7-4309-4006-bdea-6ff41857e88d.jpeg?h=555&w=804"
@@ -86,10 +92,11 @@ const Home = () => {
               PUMA, adidas & More
             </Heading>
             <Text>Fresh pairs from $49.97</Text>
-            <Flex>
+            <Flex gap={3}>
               <Link color="global.blue" textDecoration="underline">
                 Women's Activewear Sneakers
               </Link>
+
               <Link color="global.blue" textDecoration="underline">
                 Men's Activewear Sneakers
               </Link>
@@ -104,7 +111,7 @@ const Home = () => {
               Z by Zella, 90 Degree by Reflex & More
             </Heading>
             <Text>Workout sets from $15.97.</Text>
-            <Flex>
+            <Flex gap={3}>
               <Link color="global.blue" textDecoration="underline">
                 Workout sets
               </Link>
