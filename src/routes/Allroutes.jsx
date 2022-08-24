@@ -5,7 +5,8 @@ import Signup from "../pages/Signup";
 import Login from "../pages/Login";
 import Mens from "../pages/Mens";
 import Women from "../pages/Women";
-import ProductListPage from "../pages/ProductListPage";
+import WomenListPage from "../pages/WomenList.jsx";
+import MenListPage from "../pages/MensList.jsx";
 const Allroutes = () => {
   return (
     <Routes>
@@ -14,7 +15,8 @@ const Allroutes = () => {
       <Route path="/login" element={<Login />} />
       <Route path="/mens" element={<Mens />} />
       <Route path="/women" element={<Women />} />
-      <Route path="/:category" element={<ProductListPage />} />
+      <Route path="/women/Clothing" element={<WomenListPage />} />
+      <Route path="/men/Clothing" element={<MenListPage />} />
     </Routes>
   );
 };

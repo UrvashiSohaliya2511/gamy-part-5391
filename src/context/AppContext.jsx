@@ -1,7 +1,21 @@
 import React from "react";
-
-const AppContext = () => {
-  return <div>AppContext</div>;
+import { createContext, useReducer } from "react";
+import { Appreducer } from "../reduces/Appreducer";
+export const AppContext = createContext();
+const initialState = {
+  data: [],
+  isAuth: false,
+  isloading: false,
+  isError: false,
 };
+export const AppContextProvider = ({ children }) => {
+  const [state, dispatch] = useReducer(Appreducer, initialState);
 
-export default AppContext;
+  return (
+    <>
+      <AppContext.Provider value={{ state, dispatch }}>
+        {children}
+      </AppContext.Provider>
+    </>
+  );
+};

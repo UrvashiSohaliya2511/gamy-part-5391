@@ -252,9 +252,9 @@ function AdvtSlider({ data }) {
 const Stars = ({ total }) => {
   const star = new Array(5).fill(0).map((ele, i) => {
     if (i < total) {
-      return <GrStar key={i} color="#00819d" fontSize="13px" />;
+      return <GrStar key={i} color="#00819d" fontSize="17px" />;
     } else {
-      return <GrStar key={i + 1} color="#e3e3e3" fontSize="13px" />;
+      return <GrStar key={i + 1} color="#e3e3e3" fontSize="17px" />;
     }
   });
   return (

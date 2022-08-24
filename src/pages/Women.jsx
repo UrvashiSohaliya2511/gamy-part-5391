@@ -51,7 +51,7 @@ const Mens = () => {
           <Link as={ReachLink} to="/women" color="global.blue" fontWeight="450">
             Women
           </Link>
-          <Link as={ReachLink} to="/:womenclothing" _hover={textHover}>
+          <Link as={ReachLink} to="/women/Clothing" _hover={textHover}>
             Clothing
           </Link>
           <Link as={ReachLink} to="/" _hover={textHover}>
@@ -97,7 +97,7 @@ const Mens = () => {
                     <Image src={item.image} alt="xyz" />
                     <Link
                       as={ReachLink}
-                      to={`/:women${item.type}`}
+                      to={`/women/${item.type}`}
                       style={textHover}
                       color="global.blue"
                       fontSize="13px"
