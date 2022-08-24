@@ -1,7 +1,6 @@
 import { Stars } from "../componants/Homepage.Sliders.jsx";
 import React from "react";
 import {
-  Box,
   Image,
   Text,
   Flex,
@@ -9,11 +8,6 @@ import {
   RadioGroup,
   Stack,
   Radio,
-  Fade,
-  ScaleFade,
-  Slide,
-  SlideFade,
-  useDisclosure,
 } from "@chakra-ui/react";
 
 import { textHover, buttonNotfilled } from "../styles/styles.js";
