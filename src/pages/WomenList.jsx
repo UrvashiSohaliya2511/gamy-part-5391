@@ -96,7 +96,7 @@ const MensList = () => {
       <Stack p={7} textAlign="left">
         <Stack></Stack>
         <Heading fontWeight="450" color="global.black" fontSize="lg">
-          Men's Clothing
+          Women's Clothing
         </Heading>
         <Stack>
           <Tabs colorScheme="global.blue">

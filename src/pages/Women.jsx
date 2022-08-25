@@ -88,7 +88,7 @@ const Mens = () => {
         <Stack p={5} pt={0} spacing="5%">
           <Stack>
             <Heading size="sm" fontWeight="440" textAlign="left">
-              Men
+              Women
             </Heading>
             <SimpleGrid gap={5} columns={[2, 2, 3, 6]} justify="center">
               {productList.women.map((item, i) => {
