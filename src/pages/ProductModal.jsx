@@ -17,6 +17,7 @@ import {
   DrawerOverlay,
   DrawerContent,
   Show,
+  Box,
 } from "@chakra-ui/react";
 import { textHover, buttonNotfilled, buttonfilled } from "../styles/styles.js";
 import { Stars } from "../componants/Homepage.Sliders";
@@ -62,10 +63,28 @@ const ProductModal = ({ data }) => {
                 justify="center"
                 w="50%"
               >
-                <Image src={data.image[0]} />
-                <Image src={data.image[1]} />
+                <Box overflow="hidden">
+                  <Image
+                    src={data.image[0]}
+                    transition=" 0.3s"
+                    _hover={{ transform: "scale(1.1)" }}
+                  />
+                </Box>
+                <Box overflow="hidden">
+                  <Image
+                    src={data.image[1]}
+                    transition=" 0.3s "
+                    _hover={{ transform: "scale(1.1)" }}
+                  />
+                </Box>
                 <Show breakpoint="(min-width: 650px)">
-                  <Image src={data.image[2]} />
+                  <Box overflow="hidden">
+                    <Image
+                      src={data.image[2]}
+                      transition=" 0.3s"
+                      _hover={{ transform: "scale(1.1)" }}
+                    />
+                  </Box>
                 </Show>
               </SimpleGrid>
               <Stack spacing={3} w="45%">

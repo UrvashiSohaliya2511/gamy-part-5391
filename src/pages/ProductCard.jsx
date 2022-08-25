@@ -5,13 +5,13 @@ import {
   Image,
   Text,
   Flex,
-  Button,
+  Box,
   RadioGroup,
   Stack,
   Radio,
 } from "@chakra-ui/react";
 
-import { textHover, buttonNotfilled } from "../styles/styles.js";
+import { textHover } from "../styles/styles.js";
 const Color = () => {
   return (
     <>
@@ -32,12 +32,16 @@ const ProductCard = ({ itemDetail }) => {
 
   return (
     <Stack spacing={1} key={itemDetail.key}>
-      <Image
-        src={itemDetail.image[0]}
-        alt={itemDetail.title}
-        w="100%"
-        h="350px"
-      />
+      <Box overflow="hidden">
+        <Image
+          src={itemDetail.image[0]}
+          alt={itemDetail.title}
+          w="100%"
+          h="350px"
+          transition=" 0.3s"
+          _hover={{ transform: "scale(1.1)" }}
+        />
+      </Box>
 
       <ProductModal data={itemDetail} />
       <Color />

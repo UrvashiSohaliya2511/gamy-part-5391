@@ -60,7 +60,9 @@ const Navbar = () => {
           <Flex align="center" w="10%">
             Sign In <IoIosArrowDown color="global.black" />
             <Spacer />
-            <VscLock fontSize="1.6rem" />
+            <Link as={ReachLink} to="/cart">
+              <VscLock fontSize="1.6rem" />
+            </Link>
           </Flex>
         </Flex>
         <SimpleGrid spacing={1} justify="center" pb={0} columns={[3, 3, 5, 11]}>
