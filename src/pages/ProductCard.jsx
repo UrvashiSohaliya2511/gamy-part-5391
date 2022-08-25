@@ -1,6 +1,6 @@
 import { Stars } from "../componants/Homepage.Sliders.jsx";
 import React from "react";
-
+import ProductModal from "./ProductModal.jsx";
 import {
   Image,
   Text,
@@ -10,7 +10,6 @@ import {
   Stack,
   Radio,
 } from "@chakra-ui/react";
-
 
 import { textHover, buttonNotfilled } from "../styles/styles.js";
 const Color = () => {
@@ -40,19 +39,7 @@ const ProductCard = ({ itemDetail }) => {
         h="350px"
       />
 
-      <Button
-        position="relative"
-        fontWeight="normal"
-        bg="rgb(255, 255, 255,0.4)"
-        color="global.blue"
-        border="1px solid #bbb"
-        borderRadius="none"
-        visibility="visible"
-        _hover={buttonNotfilled}
-      >
-        Quick Veiw
-      </Button>
-
+      <ProductModal data={itemDetail} />
       <Color />
       <Text _hover={textHover}>{itemDetail.title}</Text>
       <Flex gap={2} align="center">

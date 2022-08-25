@@ -71,6 +71,14 @@ const MensList = () => {
         dispatch({ type: "GetdataError" });
       });
   };
+  const handledefault = () => {
+    axios
+      .get("https://json-server-mocker-started.herokuapp.com/mens?type=clothes")
+      .then((res) => {
+        setdata(res.data);
+      })
+      .catch((err) => {});
+  };
   if (state.isloading) {
     return <Text>Loading...</Text>;
   }
@@ -87,7 +95,7 @@ const MensList = () => {
         <Stack>
           <Tabs colorScheme="global.blue">
             <TabList>
-              <Tab>All Clothing</Tab>
+              <Tab onClick={handledefault}>All Clothing</Tab>
               <Tab onClick={handleTabs} value="tshirt">
                 {" "}
                 T-shirts
@@ -96,12 +104,12 @@ const MensList = () => {
                 {" "}
                 Pants
               </Tab>
+              <Tab onClick={handleTabs} value="shirt">
+                Shirts
+              </Tab>
               <Tab onClick={handleTabs} value="shorts">
                 {" "}
                 Shorts
-              </Tab>
-              <Tab onClick={handleTabs} value="shirt">
-                Shirts
               </Tab>
               <Hide below="md">
                 <Tab>Activewear</Tab>

@@ -57,6 +57,8 @@ const MensList = () => {
       const arr = data.sort((a, b) => b.discount - a.discount);
       setdata(arr);
       dispatch({ type: "GetdataSuccess" });
+    } else {
+      dispatch({ type: "GetdataSuccess" });
     }
   };
   const handleTabs = (e) => {
@@ -72,6 +74,16 @@ const MensList = () => {
       .catch((err) => {
         dispatch({ type: "GetdataError" });
       });
+  };
+  const handledefault = () => {
+    axios
+      .get(
+        "https://json-server-mocker-started.herokuapp.com/women?type=clothes"
+      )
+      .then((res) => {
+        setdata(res.data);
+      })
+      .catch((err) => {});
   };
   if (state.isloading) {
     return <Text>Loading...</Text>;
@@ -89,7 +101,7 @@ const MensList = () => {
         <Stack>
           <Tabs colorScheme="global.blue">
             <TabList>
-              <Tab>All Clothing</Tab>
+              <Tab onClick={handledefault}>All Clothing</Tab>
               <Tab onClick={handleTabs} value="kurti">
                 {" "}
                 Kurties
