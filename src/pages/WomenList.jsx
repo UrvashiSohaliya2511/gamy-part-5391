@@ -93,7 +93,7 @@ const MensList = () => {
   }
   return (
     <>
-      <Stack p={7} textAlign="left">
+      <Stack p={7} pt={1} textAlign="left">
         <Stack></Stack>
         <Heading fontWeight="450" color="global.black" fontSize="lg">
           Women's Clothing
@@ -118,8 +118,13 @@ const MensList = () => {
                 Jumpsuit
               </Tab>
               <Hide below="md">
-                <Tab>Activewear</Tab>
-                <Tab> Blazers</Tab>
+                <Tab onClick={handleTabs} value="skirt">
+                  Skirt
+                </Tab>
+                <Tab onClick={handleTabs} value="shirt">
+                  {" "}
+                  Shirt
+                </Tab>
                 <Tab> Coats & Jackets </Tab>
               </Hide>
             </TabList>

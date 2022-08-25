@@ -18,9 +18,12 @@ import { VscLock } from "react-icons/vsc";
 import { buttonhover } from "../styles/styles.js";
 import { Link as ReachLink } from "react-router-dom";
 import { Navigate } from "react-router-dom";
+import { AppContext } from "../context/AppContext.jsx";
+
 const Navbar = () => {
+  const { cartDetail } = React.useContext(AppContext);
+
   const handleImage = () => {
-    console.log("123");
     <Navigate to="/" replace={true} />;
   };
   return (
@@ -61,6 +64,9 @@ const Navbar = () => {
             Sign In <IoIosArrowDown color="global.black" />
             <Spacer />
             <VscLock fontSize="1.6rem" />
+            <Text fontSize="xs" position="relative" left={-4} top={1}>
+              {cartDetail.length}
+            </Text>
           </Flex>
         </Flex>
         <SimpleGrid spacing={1} justify="center" pb={0} columns={[3, 3, 5, 11]}>

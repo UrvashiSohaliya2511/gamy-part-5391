@@ -22,6 +22,8 @@ import { textHover, buttonNotfilled, buttonfilled } from "../styles/styles.js";
 import { Stars } from "../componants/Homepage.Sliders";
 import { BsTruck, BsFillBagFill } from "react-icons/bs";
 import { FiAlertCircle } from "react-icons/fi";
+import { useContext, useState } from "react";
+import { AppContext } from "../context/AppContext.jsx";
 const ProductModal = ({ data }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
@@ -114,8 +116,21 @@ const ProductModal = ({ data }) => {
 };
 
 function Alert({ product }) {
+  const { cartDetail, setcartDetail } = useContext(AppContext);
+  const [msg, setmsg] = useState("  Product Added to Bag");
   const { isOpen, onOpen, onClose } = useDisclosure();
-
+  const handleCart = () => {
+    const checkCart = cartDetail.filter((ele) => {
+      return ele.title === product.title;
+    });
+    console.log(checkCart);
+    if (checkCart.length > 0) {
+      setmsg("Product is already in bag");
+    } else {
+      setcartDetail([...cartDetail, product]);
+    }
+    onOpen(true);
+  };
   return (
     <>
       <Button
@@ -129,7 +144,7 @@ function Alert({ product }) {
         visibility="visible"
         _hover={buttonfilled}
         gap={2}
-        onClick={onOpen}
+        onClick={handleCart}
       >
         <BsFillBagFill />
         Add to bag
@@ -139,7 +154,7 @@ function Alert({ product }) {
         <DrawerContent>
           <DrawerBody bg="global.blue" color="white">
             <Text fontWeight="450" textAlign="center">
-              Product Added to cart
+              {msg}
             </Text>
           </DrawerBody>
         </DrawerContent>
