@@ -17,6 +17,7 @@ const Allroutes = () => {
       <Route path="/women" element={<Women />} />
       <Route path="/women/Clothing" element={<WomenListPage />} />
       <Route path="/men/Clothing" element={<MenListPage />} />
+      <Route path="*" element={<h1>404 Page not found</h1>} />
     </Routes>
   );
 };
