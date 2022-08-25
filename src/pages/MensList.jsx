@@ -12,6 +12,7 @@ import {
   Tab,
   TabList,
   Tabs,
+  Hide,
 } from "@chakra-ui/react";
 import { AppContext } from "../context/AppContext";
 import { useContext } from "react";
@@ -32,8 +33,49 @@ const MensList = () => {
         dispatch({ type: "GetdataError" });
       });
   }, []);
+  const handleFilter = (e) => {
+    let type = e.target.value;
+    dispatch({ type: "Getdata" });
+    if (type === "price_htl") {
+      const arr = data.sort((a, b) => b.price - a.price);
+      setdata(arr);
+      dispatch({ type: "GetdataSuccess" });
+    }
+    if (type === "price_lth") {
+      const arr = data.sort((a, b) => a.price - b.price);
+      setdata(arr);
+      dispatch({ type: "GetdataSuccess" });
+    }
+    if (type === "rating_htl") {
+      const arr = data.sort((a, b) => b.rating - a.rating);
+      setdata(arr);
+      dispatch({ type: "GetdataSuccess" });
+    }
+    if (type === "discount_htl") {
+      const arr = data.sort((a, b) => b.discount - a.discount);
+      setdata(arr);
+      dispatch({ type: "GetdataSuccess" });
+    }
+  };
+  const handleTabs = (e) => {
+    let type = e.target.value;
+
+    axios
+      .get(
+        `https://json-server-mocker-started.herokuapp.com/mens?type=clothes&category=${type}`
+      )
+      .then((res) => {
+        setdata(res.data);
+      })
+      .catch((err) => {
+        dispatch({ type: "GetdataError" });
+      });
+  };
   if (state.isloading) {
     return <Text>Loading...</Text>;
+  }
+  if (state.isError) {
+    return <Text>Error</Text>;
   }
   return (
     <>
@@ -46,14 +88,26 @@ const MensList = () => {
           <Tabs colorScheme="global.blue">
             <TabList>
               <Tab>All Clothing</Tab>
-              <Tab>Activewear</Tab>
-              <Tab> Blazers</Tab>
-              <Tab> Coats & Jackets </Tab>
-              <Tab>Dresses</Tab>
-              <Tab> Jeans & Denim</Tab>
-              <Tab> Jumpsuits & Rompers</Tab>
-              <Tab> Shorts</Tab>
-              <Tab> Skirts</Tab>
+              <Tab onClick={handleTabs} value="tshirt">
+                {" "}
+                T-shirts
+              </Tab>
+              <Tab onClick={handleTabs} value="pants">
+                {" "}
+                Pants
+              </Tab>
+              <Tab onClick={handleTabs} value="shorts">
+                {" "}
+                Shorts
+              </Tab>
+              <Tab onClick={handleTabs} value="shirt">
+                Shirts
+              </Tab>
+              <Hide below="md">
+                <Tab>Activewear</Tab>
+                <Tab> Blazers</Tab>
+                <Tab> Coats & Jackets </Tab>
+              </Hide>
             </TabList>
           </Tabs>
 
@@ -63,12 +117,13 @@ const MensList = () => {
               w="25%"
               borderRadius="none"
               color="global.black"
+              onChange={handleFilter}
             >
               <option>Sort by featured</option>
-              <option value="rating">Sort by Customer Rating</option>
-              <option value="htl">Sort by Price:High to Low</option>
-              <option value="lth">Sort by Price:Low to High</option>
-              <option value="offer">Sort by percent off</option>
+              <option value="rating_htl">Sort by Customer Rating</option>
+              <option value="price_htl">Sort by Price:High to Low</option>
+              <option value="price_lth">Sort by Price:Low to High</option>
+              <option value="discount_htl">Sort by percent off</option>
             </Select>
           </Flex>
           <SimpleGrid columns={[1, 2, 3, 4]} textAlign="left" spacing={5}>
