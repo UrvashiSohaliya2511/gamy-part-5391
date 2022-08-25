@@ -1,5 +1,6 @@
 import { Stars } from "../componants/Homepage.Sliders.jsx";
 import React from "react";
+
 import {
   Image,
   Text,
@@ -9,6 +10,7 @@ import {
   Stack,
   Radio,
 } from "@chakra-ui/react";
+
 
 import { textHover, buttonNotfilled } from "../styles/styles.js";
 const Color = () => {
