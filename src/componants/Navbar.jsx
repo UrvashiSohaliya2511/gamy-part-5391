@@ -60,8 +60,13 @@ const Navbar = () => {
             />
           </InputGroup>
           <Spacer />
+
           <Flex align="center" w="10%">
-            Sign In <IoIosArrowDown color="global.black" />
+            <Link as={ReachLink} to="/signin">
+              <Flex align="center">
+                <Text>Sign In</Text> <IoIosArrowDown color="global.black" />
+              </Flex>
+            </Link>
             <Spacer />
             <Link as={ReachLink} to="/cart">
               <VscLock fontSize="1.6rem" />

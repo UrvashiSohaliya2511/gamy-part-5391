@@ -8,6 +8,7 @@ import Women from "../pages/Women";
 import WomenListPage from "../pages/WomenList.jsx";
 import MenListPage from "../pages/MensList.jsx";
 import Cart from "../pages/cart.jsx";
+import Signin from "../pages/Signin";
 const Allroutes = () => {
   return (
     <Routes>
@@ -20,6 +21,7 @@ const Allroutes = () => {
       <Route path="/men/Clothing" element={<MenListPage />} />
       <Route path="*" element={<h1>404 Page not found</h1>} />
       <Route path="/cart" element={<Cart />} />
+      <Route path="/signin" element={<Signin />} />
     </Routes>
   );
 };
