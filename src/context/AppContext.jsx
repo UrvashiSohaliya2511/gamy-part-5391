@@ -12,11 +12,18 @@ const initialState = {
 export const AppContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(Appreducer, initialState);
   const [cartDetail, setcartDetail] = useState([]);
-
+  const [savedItems, setsavedItems] = useState([]);
   return (
     <>
       <AppContext.Provider
-        value={{ state, dispatch, cartDetail, setcartDetail }}
+        value={{
+          state,
+          dispatch,
+          cartDetail,
+          setcartDetail,
+          setsavedItems,
+          savedItems,
+        }}
       >
         {children}
       </AppContext.Provider>

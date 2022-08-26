@@ -12,12 +12,9 @@ import {
   SimpleGrid,
   Flex,
   Text,
-  Drawer,
-  DrawerBody,
-  DrawerOverlay,
-  DrawerContent,
   Show,
   Box,
+  useToast,
 } from "@chakra-ui/react";
 import { textHover, buttonNotfilled, buttonfilled } from "../styles/styles.js";
 import { Stars } from "../componants/Homepage.Sliders";
@@ -136,19 +133,33 @@ const ProductModal = ({ data }) => {
 
 function Alert({ product }) {
   const { cartDetail, setcartDetail } = useContext(AppContext);
-  const [msg, setmsg] = useState("  Product Added to Bag");
-  const { isOpen, onOpen, onClose } = useDisclosure();
+
+  const toast = useToast();
   const handleCart = () => {
     const checkCart = cartDetail.filter((ele) => {
       return ele.title === product.title;
     });
     console.log(checkCart);
     if (checkCart.length > 0) {
-      setmsg("Product is already in bag");
+      toast({
+        title: "Product is already in bag",
+        description: "You can change Quantity in Cart",
+        status: "warning",
+        position: "top-right",
+        duration: 2000,
+        isClosable: true,
+      });
     } else {
       setcartDetail([...cartDetail, product]);
+      toast({
+        title: "Product Added to bag",
+        description: "You can change Quantity in Cart",
+        status: "success",
+        duration: 2000,
+        position: "top-right",
+        isClosable: true,
+      });
     }
-    onOpen(true);
   };
   return (
     <>
@@ -168,16 +179,6 @@ function Alert({ product }) {
         <BsFillBagFill />
         Add to bag
       </Button>
-      <Drawer placement="top" onClose={onClose} isOpen={isOpen}>
-        <DrawerOverlay />
-        <DrawerContent>
-          <DrawerBody bg="global.blue" color="white">
-            <Text fontWeight="450" textAlign="center">
-              {msg}
-            </Text>
-          </DrawerBody>
-        </DrawerContent>
-      </Drawer>
     </>
   );
 }
