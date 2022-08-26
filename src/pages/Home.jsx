@@ -1,4 +1,5 @@
 import { buttonNotfilled } from "../styles/styles";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 import {
   sliderdata1,
   sliderdataClothes,
@@ -18,7 +19,7 @@ import {
   SimpleGrid,
 } from "@chakra-ui/react";
 
-import {
+import CarouselComponent, {
   Topslider,
   Productbar,
   AdvtSlider,
@@ -121,6 +122,7 @@ const Home = () => {
             </Flex>
           </Box>
         </SimpleGrid>
+        <CarouselComponent data={sliderdata1} />
       </Stack>
     </div>
   );

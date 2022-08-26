@@ -1,3 +1,4 @@
+import { Carousel } from "react-responsive-carousel";
 import {
   Stack,
   Image,
@@ -263,4 +264,26 @@ const Stars = ({ total }) => {
     </>
   );
 };
+export default function CarouselComponent({ data }) {
+  return (
+    // <div className="carousel-wrapper">
+
+    <Carousel infiniteLoop useKeyboardArrows autoPlay showIndicators={false}>
+      {data &&
+        data.map((item, i) => {
+          return (
+            <>
+              <Box key={i}>
+                <Image src={item.image} />
+                {/* <Text fontWeight="450" fontSize="14px" color="global.black">
+                  {item.title}
+                </Text>
+                <Text fontSize="xs">{item.text}</Text> */}
+              </Box>
+            </>
+          );
+        })}
+    </Carousel>
+  );
+}
 export { Topslider, Productbar, Stars, AdvtSlider, Secondslider };

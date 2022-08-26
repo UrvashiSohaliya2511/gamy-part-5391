@@ -13,7 +13,9 @@ import {
   Link,
   SimpleGrid,
   Divider,
+  Hide,
 } from "@chakra-ui/react";
+import { Stars } from "../componants/Homepage.Sliders.jsx";
 import { GoGift } from "react-icons/go";
 import { BsTruck } from "react-icons/bs";
 
@@ -38,7 +40,7 @@ const Cart = () => {
             borderRadius="none"
             fontWeight={iscart ? "450" : "normal"}
             bg={iscart ? "#e3e3e3" : "none"}
-            w="20%"
+            w={["40%", "40%", "20%", "20%"]}
             _hover="disabled"
             onClick={() => {
               setiscart(true);
@@ -51,7 +53,7 @@ const Cart = () => {
             borderRadius="none"
             fontWeight={!iscart ? "450" : "normal"}
             bg={!iscart ? "#e3e3e3" : "none"}
-            w="20%"
+            w={["40%", "40%", "20%", "20%"]}
             _hover="disabled"
             onClick={() => {
               setiscart(false);
@@ -69,8 +71,8 @@ const Cart = () => {
             <GoGift fontSize="15px" />
             <Text>Add a gift message when you check out.</Text>
           </Flex>
-          <Flex>
-            <Stack w="70%">
+          <Flex gap={5}>
+            <Stack w={["98%", "90%", "75%", "75%"]}>
               {iscart &&
                 cartDetail &&
                 cartDetail.map((ele) => {
@@ -165,6 +167,49 @@ const Cart = () => {
                 </Stack>
               </Flex>
             </Stack>
+            <Hide below="md">
+              <Stack w="25%" p={5} pt={0} borderLeft="1px solid #bbb">
+                <Text fontWeight="bold" t>
+                  People also viewed
+                </Text>
+                <Flex>
+                  <Image src="https://n.nordstrommedia.com/id/sr3/754e4c52-acf2-44da-95da-1dd724b7cac5.jpeg?q=45&dpr=2&h=135.8&w=45" />
+                  <Box fontSize="13px">
+                    <Text>NORDSTROM RACK</Text>
+                    <Text fontWeight="450">$19.97</Text>
+                    <Stars total={5} />
+                    <Text>Size small available</Text>
+                  </Box>
+                </Flex>
+                <Flex>
+                  <Image src="https://n.nordstrommedia.com/id/sr3/b4a3150a-933d-4763-aa18-96ac0754bec2.jpeg?q=45&dpr=2&h=135.8&w=45" />
+                  <Box fontSize="13px">
+                    <Text>Z by Zella</Text>
+                    <Text fontWeight="450">$48.97</Text>
+                    <Stars total={3} />
+                    <Text>Size small available</Text>
+                  </Box>
+                </Flex>
+                <Flex>
+                  <Image src="https://n.nordstrommedia.com/id/sr3/521bca57-0285-4a11-b4e6-51342a4b1b36.jpeg?q=45&dpr=2&h=135.8&w=45" />
+                  <Box fontSize="13px">
+                    <Text>NORDSTROM RACK</Text>
+                    <Text fontWeight="450">$26.97</Text>
+                    <Stars total={4} />
+                    <Text>Size small available</Text>
+                  </Box>
+                </Flex>
+                <Flex>
+                  <Image src="https://n.nordstrommedia.com/id/sr3/fd82a676-e6f4-409c-b272-5fe2daafd745.jpeg?q=45&dpr=2&h=135.8&w=45" />
+                  <Box fontSize="13px">
+                    <Text>Z by Zella</Text>
+                    <Text fontWeight="450">$19.97</Text>
+                    <Stars total={5} />
+                    <Text>Size small available</Text>
+                  </Box>
+                </Flex>
+              </Stack>
+            </Hide>
           </Flex>
         </Stack>
       </Stack>
