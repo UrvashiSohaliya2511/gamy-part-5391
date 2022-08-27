@@ -9,6 +9,7 @@ import WomenListPage from "../pages/WomenList.jsx";
 import MenListPage from "../pages/MensList.jsx";
 import Cart from "../pages/cart.jsx";
 import Signin from "../pages/Signin";
+import PrivateRoute from "./PrivateRoute.jsx";
 const Allroutes = () => {
   return (
     <Routes>
@@ -20,8 +21,16 @@ const Allroutes = () => {
       <Route path="/women/Clothing" element={<WomenListPage />} />
       <Route path="/men/Clothing" element={<MenListPage />} />
       <Route path="*" element={<h1>404 Page not found</h1>} />
-      <Route path="/cart" element={<Cart />} />
+      <Route
+        path="/cart"
+        element={
+          <PrivateRoute>
+            <Cart />
+          </PrivateRoute>
+        }
+      />
       <Route path="/signin" element={<Signin />} />
+      <Route path="/login" element={<Login />} />
     </Routes>
   );
 };

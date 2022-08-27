@@ -44,6 +44,16 @@ export const sliderdataClothes = [
     text: "Online and in stores.",
   },
 ];
+export const smallslider = [
+  {
+    image:
+      "https://n.nordstrommedia.com/id/eb9ddacd-b3cb-4f4c-a515-4b19d40dd545.jpeg?h=200&w=1608",
+  },
+  {
+    image:
+      "https://n.nordstrommedia.com/id/2623684d-a784-417b-b355-ff997e1092d0.jpeg?h=200&w=1608",
+  },
+];
 export const AdvtSliderdata = [
   [
     {

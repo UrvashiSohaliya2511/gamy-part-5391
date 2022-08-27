@@ -5,15 +5,17 @@ import {
   Heading,
   Text,
   Flex,
-  Button,
-  Form,
-  FormControl,
+  Link,
   FormLabel,
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { buttonfilled } from "../styles/styles.js";
+import { useNavigate, Link as ReachLink } from "react-router-dom";
 import { BsCart, BsTruck, BsCloudPlus } from "react-icons/bs";
 const Signin = () => {
+  let navigate = useNavigate();
+
+  const userData = JSON.parse(localStorage.getItem("user")) || [];
   const obj = {
     email: "",
     password: "",
@@ -23,10 +25,22 @@ const Signin = () => {
   const handleChange = (e) => {
     obj[e.target.name] = e.target.value;
   };
-  const handleSubmit = () => {
-    alert("submit");
-    console.log(obj);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const arr = userData.filter((ele) => {
+      return ele.email === obj.email;
+    });
+    if (arr.length > 0) {
+      alert("account already exist");
+      navigate("/login");
+    } else {
+      userData.push(obj);
+      localStorage.setItem("user", JSON.stringify(userData));
+      alert("acount created");
+      navigate("/login");
+    }
   };
+  console.log(userData);
   return (
     <Stack
       w={["90%", "80%", "45%", "30%"]}
@@ -37,7 +51,15 @@ const Signin = () => {
       spacing={4}
     >
       <Heading fontWeight="400" fontSize="xl">
-        Create Account
+        <Flex gap={3}>
+          <Link to="/signin" as={ReachLink} fontWeight="450">
+            Sign Up
+          </Link>
+          |
+          <Link to="/login" as={ReachLink}>
+            Login
+          </Link>
+        </Flex>
       </Heading>
       <Flex fontSize="14px" align="center" gap={3}>
         <BsCart />
@@ -52,7 +74,7 @@ const Signin = () => {
         <Text>Use one sign-in across our brands</Text>
       </Flex>
 
-      <FormControl isRequired onChange={handleChange}>
+      <form onChange={handleChange} onSubmit={handleSubmit}>
         <FormLabel fontSize="12px">Email</FormLabel>
         <Input
           border="1px solid #bbb"
@@ -60,6 +82,7 @@ const Signin = () => {
           type="email"
           mb={3}
           name="email"
+          required
         />
         <FormLabel fontSize="12px">First name</FormLabel>
         <Input
@@ -68,6 +91,7 @@ const Signin = () => {
           borderRadius="none"
           type="text"
           mb={3}
+          required
         />
         <FormLabel fontSize="12px">Last name</FormLabel>
         <Input
@@ -76,6 +100,7 @@ const Signin = () => {
           borderRadius="none"
           type="text"
           mb={3}
+          required
         />
         <FormLabel fontSize="12px">Create password </FormLabel>
         <Input
@@ -84,6 +109,7 @@ const Signin = () => {
           borderRadius="none"
           mb={3}
           name="password"
+          required
         />
 
         <Flex gap={0} fontSize="12px">
@@ -94,15 +120,16 @@ const Signin = () => {
         </Flex>
         <Input
           type="submit"
+          value="Create Account"
           bg="global.blue"
           color="white"
           _hover={buttonfilled}
           fontWeight="normal"
           borderRadius="none"
           placeholder="Create Account"
-          onSubmit={handleSubmit}
+          required
         />
-      </FormControl>
+      </form>
     </Stack>
   );
 };
