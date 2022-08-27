@@ -21,7 +21,7 @@ import { Navigate } from "react-router-dom";
 import { AppContext } from "../context/AppContext.jsx";
 
 const Navbar = () => {
-  const { cartDetail } = React.useContext(AppContext);
+  const { cartDetail, isAuth } = React.useContext(AppContext);
 
   const handleImage = () => {
     <Navigate to="/" replace={true} />;
@@ -62,7 +62,11 @@ const Navbar = () => {
           <Spacer />
 
           <Flex align="center" w="10%">
-            <Link as={ReachLink} to="/signin">
+            <Link
+              as={ReachLink}
+              to="/signin"
+              visibility={isAuth ? "hidden" : "visible"}
+            >
               <Flex align="center">
                 <Text>Sign In</Text> <IoIosArrowDown color="global.black" />
               </Flex>
@@ -71,9 +75,11 @@ const Navbar = () => {
             <Link as={ReachLink} to="/cart">
               <VscLock fontSize="1.6rem" />
             </Link>
-            <Text fontSize="xs" position="relative" left={-4} top={1}>
-              {cartDetail.length}
-            </Text>
+            <Link as={ReachLink} to="/cart">
+              <Text fontSize="xs" position="relative" left={-4} top={1}>
+                {cartDetail.length}
+              </Text>
+            </Link>
           </Flex>
         </Flex>
         <SimpleGrid spacing={1} justify="center" pb={0} columns={[3, 3, 5, 11]}>

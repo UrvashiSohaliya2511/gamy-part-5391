@@ -263,7 +263,7 @@ const CartDetailCard = ({ ele }) => {
           <Image src={ele.image[0]} alt={ele.title} w="30%" h="100%" />
           <Stack fontSize="14px" spacing={3}>
             <Text>{ele.title}</Text>
-            <Text>Item : {(Math.random() * 100000).toFixed(0)}</Text>
+            <Text>Item : {ele.id % 2 === 0 ? "6547894" : "125344"}</Text>
             <Flex align="top" gap={1}>
               <BsTruck fontSize="24px" />
               <Box>
