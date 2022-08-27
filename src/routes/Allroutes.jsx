@@ -10,6 +10,7 @@ import MenListPage from "../pages/MensList.jsx";
 import Cart from "../pages/cart.jsx";
 import Signin from "../pages/Signin";
 import PrivateRoute from "./PrivateRoute.jsx";
+import Payment from "../pages/payment";
 const Allroutes = () => {
   return (
     <Routes>
@@ -31,6 +32,7 @@ const Allroutes = () => {
       />
       <Route path="/signin" element={<Signin />} />
       <Route path="/login" element={<Login />} />
+      <Route path="/cart/payment" element={<Payment />} />
     </Routes>
   );
 };
