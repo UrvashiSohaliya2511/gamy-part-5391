@@ -9,6 +9,7 @@ import {
   Input,
   Spacer,
   Link,
+  Button,
   SimpleGrid,
 } from "@chakra-ui/react";
 import React from "react";
@@ -21,7 +22,7 @@ import { Navigate } from "react-router-dom";
 import { AppContext } from "../context/AppContext.jsx";
 
 const Navbar = () => {
-  const { cartDetail, isAuth } = React.useContext(AppContext);
+  const { cartDetail, isAuth, setisAuth } = React.useContext(AppContext);
 
   const handleImage = () => {
     <Navigate to="/" replace={true} />;
@@ -60,7 +61,17 @@ const Navbar = () => {
             />
           </InputGroup>
           <Spacer />
-
+          <Button
+            visibility={!isAuth ? "hidden" : "visible"}
+            onClick={() => {
+              setisAuth(false);
+            }}
+            variant="ghost"
+            color="global.blue"
+            fontWeight="450"
+          >
+            Logout
+          </Button>
           <Flex align="center" w="10%">
             <Link
               as={ReachLink}
@@ -71,7 +82,9 @@ const Navbar = () => {
                 <Text>Sign In</Text> <IoIosArrowDown color="global.black" />
               </Flex>
             </Link>
+
             <Spacer />
+
             <Link as={ReachLink} to="/cart">
               <VscLock fontSize="1.6rem" />
             </Link>
