@@ -4,6 +4,7 @@ import {
   sliderdata1,
   sliderdataClothes,
   AdvtSliderdata,
+  smallslider,
 } from "../componants/data.jsx";
 import {
   Button,
@@ -122,7 +123,11 @@ const Home = () => {
             </Flex>
           </Box>
         </SimpleGrid>
-        <CarouselComponent data={sliderdata1} />
+        <Topslider sliderdata={smallslider} />
+        <Heading size="lg" color="global.black" fontWeight="450" pb={3}>
+          Rack Your Look
+        </Heading>
+        {/* <CarouselComponent data={AdvtSliderdata} /> */}
       </Stack>
     </div>
   );

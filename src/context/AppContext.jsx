@@ -4,8 +4,6 @@ import { Appreducer } from "../reduces/Appreducer";
 export const AppContext = createContext();
 
 const initialState = {
-  data: [],
-  isAuth: false,
   isloading: false,
   isError: false,
 };
@@ -13,6 +11,7 @@ export const AppContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(Appreducer, initialState);
   const [cartDetail, setcartDetail] = useState([]);
   const [savedItems, setsavedItems] = useState([]);
+  const [isAuth, setisAuth] = useState(false);
   return (
     <>
       <AppContext.Provider
@@ -23,6 +22,8 @@ export const AppContextProvider = ({ children }) => {
           setcartDetail,
           setsavedItems,
           savedItems,
+          isAuth,
+          setisAuth,
         }}
       >
         {children}

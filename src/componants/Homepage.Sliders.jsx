@@ -268,18 +268,40 @@ export default function CarouselComponent({ data }) {
   return (
     // <div className="carousel-wrapper">
 
-    <Carousel infiniteLoop useKeyboardArrows autoPlay showIndicators={false}>
+    <Carousel
+      infiniteLoop
+      showStatus={false}
+      autoPlay
+      showIndicators={false}
+      showArrows={{ height: "200px", margin: "auto" }}
+    >
       {data &&
-        data.map((item, i) => {
+        data.map((item) => {
           return (
             <>
-              <Box key={i}>
-                <Image src={item.image} />
-                {/* <Text fontWeight="450" fontSize="14px" color="global.black">
-                  {item.title}
-                </Text>
-                <Text fontSize="xs">{item.text}</Text> */}
-              </Box>
+              <Flex textAlign="left" gap={5}>
+                <Box key={0}>
+                  <Image src={item[0].image} />
+                  <Text fontWeight="450" fontSize="14px" color="global.black">
+                    {item[0].title}
+                  </Text>
+                  <Text fontSize="xs">{item[0].text}</Text>
+                </Box>
+                <Box key={1}>
+                  <Image src={item[1].image} />
+                  <Text fontWeight="450" fontSize="14px" color="global.black">
+                    {item[1].title}
+                  </Text>
+                  <Text fontSize="xs">{item[1].text}</Text>
+                </Box>
+                <Box key={2}>
+                  <Image src={item[2].image} />
+                  <Text fontWeight="450" fontSize="14px" color="global.black">
+                    {item[2].title}
+                  </Text>
+                  <Text fontSize="xs">{item[2].text}</Text>
+                </Box>
+              </Flex>
             </>
           );
         })}
