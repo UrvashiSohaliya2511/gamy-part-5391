@@ -9,6 +9,8 @@ import {
   Flex,
   SimpleGrid,
   Spacer,
+  Radio,
+  RadioGroup,
 } from "@chakra-ui/react";
 import { useState, useEffect, useRef } from "react";
 import { GrStar } from "react-icons/gr";
@@ -16,6 +18,7 @@ import {
   MdOutlineArrowForwardIos,
   MdOutlineArrowBackIosNew,
 } from "react-icons/md";
+import ProductModal from "../pages/ProductModal";
 function Topslider({ sliderdata }) {
   let i = 0;
   let ref = useRef();
@@ -265,47 +268,122 @@ const Stars = ({ total }) => {
   );
 };
 export default function CarouselComponent({ data }) {
+  console.log(data);
   return (
     // <div className="carousel-wrapper">
 
     <Carousel
       infiniteLoop
       showStatus={false}
-      autoPlay
+      autoPlay={true}
       showIndicators={false}
-      showArrows={{ height: "200px", margin: "auto" }}
+      showThumbs={false}
     >
       {data &&
-        data.map((item) => {
+        data.map((ele, i) => {
           return (
-            <>
-              <Flex textAlign="left" gap={5}>
-                <Box key={0}>
-                  <Image src={item[0].image} />
-                  <Text fontWeight="450" fontSize="14px" color="global.black">
-                    {item[0].title}
-                  </Text>
-                  <Text fontSize="xs">{item[0].text}</Text>
-                </Box>
-                <Box key={1}>
-                  <Image src={item[1].image} />
-                  <Text fontWeight="450" fontSize="14px" color="global.black">
-                    {item[1].title}
-                  </Text>
-                  <Text fontSize="xs">{item[1].text}</Text>
-                </Box>
-                <Box key={2}>
-                  <Image src={item[2].image} />
-                  <Text fontWeight="450" fontSize="14px" color="global.black">
-                    {item[2].title}
-                  </Text>
-                  <Text fontSize="xs">{item[2].text}</Text>
-                </Box>
-              </Flex>
-            </>
+            <SimpleGrid gap={2} w="100%" columns="5">
+              <Image src={ele[0].vedio} />
+              <Image src={ele[1].vedio} />
+              <Image src={ele[2].vedio} />
+              <Image src={ele[3].vedio} />
+              <Image src={ele[4].vedio} />
+            </SimpleGrid>
           );
         })}
     </Carousel>
   );
 }
+
+export const CommanProductSlider = () => {
+  const [data, setdata] = useState([]);
+  useEffect(() => {
+    let arr = [];
+
+    fetch("https://json-server-mocker-started.herokuapp.com/women?type=clothes")
+      .then((res) => res.json())
+      .then((res) => {
+        let c = res.length;
+        let x = 0;
+        while (c > 0) {
+          let temp = [];
+          for (let i = 0; i < 5; i++) {
+            temp.push(res[x]);
+            c--;
+            x++;
+          }
+          arr.push(temp);
+        }
+        setdata(arr);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  }, []);
+
+  return (
+    <Carousel
+      infiniteLoop
+      showStatus={false}
+      autoPlay={false}
+      showIndicators={false}
+      showThumbs={false}
+    >
+      {data &&
+        data.map((ele, i) => {
+          return (
+            <SimpleGrid gap={2} w="100%" columns="5">
+              <Product itemDetail={ele[0]} />
+              <Product itemDetail={ele[1]} />
+              <Product itemDetail={ele[2]} />
+              <Product itemDetail={ele[3]} />
+              <Product itemDetail={ele[4]} />
+            </SimpleGrid>
+          );
+        })}
+    </Carousel>
+  );
+};
+const Color = () => {
+  return (
+    <>
+      <RadioGroup defaultValue="0">
+        <Stack spacing={2} direction="row" align="center">
+          <Radio size="lg" colorScheme="#2d282c" bg="#2d282c" value="1"></Radio>
+          <Radio size="lg" colorScheme="#005c6d" bg="#005c6d" value="2"></Radio>
+          <Radio size="lg" colorScheme="#cdb4a6" bg="#cdb4a6" value="3"></Radio>
+          <Radio size="lg" colorScheme="#a36f53" bg="#a36f53" value="4"></Radio>
+          <Radio size="lg" colorScheme="#b4afb1" bg="#b4afb1" value="5"></Radio>
+        </Stack>
+      </RadioGroup>
+    </>
+  );
+};
+const Product = ({ itemDetail }) => {
+  return (
+    <Stack spacing={1} key={itemDetail.key} textAlign="left">
+      <Box overflow="hidden">
+        <Image
+          src={itemDetail.image[0]}
+          alt={itemDetail.title}
+          w="100%"
+          h="300px"
+          transition=" 0.3s"
+          _hover={{ transform: "scale(1.1)" }}
+        />
+      </Box>
+
+      <ProductModal data={itemDetail} />
+      <Color />
+      <Text>{itemDetail.title}</Text>
+
+      <Flex align="center" gap={2}>
+        <Stars total={itemDetail.rating} />
+        <Text color="#898989">{`(${Math.floor(Math.random() * 10) + 1})`}</Text>
+      </Flex>
+      <Text color="#898989">Free Shipping on Orders $89+</Text>
+    </Stack>
+  );
+};
+
 export { Topslider, Productbar, Stars, AdvtSlider, Secondslider };

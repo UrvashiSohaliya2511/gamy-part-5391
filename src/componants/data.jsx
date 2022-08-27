@@ -156,3 +156,45 @@ export const AdvtSliderdata = [
     },
   ],
 ];
+export const vedioSlider = [
+  [
+    {
+      vedio:
+        "https://cdn.dashhudson.com/media/640/1635798101.057760741882.jpeg",
+    },
+    {
+      vedio: "https://cdn.dashhudson.com/media/640/1628598956.37983440346.jpeg",
+    },
+    {
+      vedio: "https://cdn.dashhudson.com/media/640/1625812071.39856985243.jpeg",
+    },
+    {
+      vedio:
+        "https://cdn.dashhudson.com/media/640/1626312391.206982943516.jpeg",
+    },
+    {
+      vedio: "https://cdn.dashhudson.com/media/640/1619542695.85628681795.jpeg",
+    },
+  ],
+  [
+    {
+      vedio:
+        "https://images.dashhudson.com/aHR0cHM6Ly9jZG4uZGFzaGh1ZHNvbi5jb20vbWVkaWEvZnVsbC8xNjQ1MzA3NTM4LjQzMjE1NzU1MTU5OC5qcGVn.jpg?w=640&h=640&fit=cover",
+    },
+    {
+      vedio:
+        "https://images.dashhudson.com/aHR0cHM6Ly9jZG4uZGFzaGh1ZHNvbi5jb20vbWVkaWEvZnVsbC8xNjQ0OTU2MDExLjA1NzIyOTM2NTE1Ny5qcGVn.jpg?w=640&h=640&fit=cover",
+    },
+    {
+      vedio: "https://cdn.dashhudson.com/media/640/1631993473.42439544038.jpeg",
+    },
+    {
+      vedio:
+        "https://cdn.dashhudson.com/media/640/1633887270.044514738442.jpeg",
+    },
+    {
+      vedio:
+        "https://cdn.dashhudson.com/media/640/1635024938.355172968493.jpeg",
+    },
+  ],
+];

@@ -121,7 +121,9 @@ const ProductModal = ({ data }) => {
                     Apply Now
                   </Text>
                 </Text>
-                <Alert product={data} />
+                <Stack pt={6}>
+                  <Alert product={data} />
+                </Stack>
               </Stack>
             </Flex>
           </ModalBody>
