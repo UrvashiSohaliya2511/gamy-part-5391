@@ -88,11 +88,16 @@ const Navbar = () => {
             <Link as={ReachLink} to="/cart">
               <VscLock fontSize="1.6rem" />
             </Link>
-            <Link as={ReachLink} to="/cart">
-              <Text fontSize="xs" position="relative" left={-4} top={1}>
-                {cartDetail.length}
-              </Text>
-            </Link>
+
+            <Text
+              fontSize="xs"
+              position="relative"
+              left={-4}
+              top={1}
+              _hover={{ cursor: "pointer" }}
+            >
+              {cartDetail.length}
+            </Text>
           </Flex>
         </Flex>
         <SimpleGrid spacing={1} justify="center" pb={0} columns={[3, 3, 5, 11]}>

@@ -349,11 +349,41 @@ const Color = () => {
     <>
       <RadioGroup defaultValue="0">
         <Stack spacing={2} direction="row" align="center">
-          <Radio size="lg" colorScheme="#2d282c" bg="#2d282c" value="1"></Radio>
-          <Radio size="lg" colorScheme="#005c6d" bg="#005c6d" value="2"></Radio>
-          <Radio size="lg" colorScheme="#cdb4a6" bg="#cdb4a6" value="3"></Radio>
-          <Radio size="lg" colorScheme="#a36f53" bg="#a36f53" value="4"></Radio>
-          <Radio size="lg" colorScheme="#b4afb1" bg="#b4afb1" value="5"></Radio>
+          <Radio
+            size="lg"
+            colorScheme="#2d282c"
+            bg="#2d282c"
+            key="1"
+            value="1"
+          ></Radio>
+          <Radio
+            size="lg"
+            colorScheme="#005c6d"
+            bg="#005c6d"
+            key="2"
+            value="2"
+          ></Radio>
+          <Radio
+            size="lg"
+            colorScheme="#cdb4a6"
+            bg="#cdb4a6"
+            key="3"
+            value="3"
+          ></Radio>
+          <Radio
+            size="lg"
+            colorScheme="#a36f53"
+            bg="#a36f53"
+            key="4"
+            value="4"
+          ></Radio>
+          <Radio
+            size="lg"
+            colorScheme="#b4afb1"
+            bg="#b4afb1"
+            key="5"
+            value="5"
+          ></Radio>
         </Stack>
       </RadioGroup>
     </>

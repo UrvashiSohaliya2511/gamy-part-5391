@@ -22,18 +22,50 @@ import { BsCreditCard2Front } from "react-icons/bs";
 import { FiAlertCircle } from "react-icons/fi";
 import { buttonfilled } from "../styles/styles.js";
 // import { BsBagCheck } from "react-icons/bs";
-
+import { useNavigate } from "react-router-dom";
 const Payment = () => {
-  const { cartDetail } = React.useContext(AppContext);
+  const Navigate = useNavigate();
+  const { cartDetail, setcartDetail } = React.useContext(AppContext);
   let sum = 0;
   cartDetail.map((ele) => {
     sum += ele.quantity * ele.price;
     return ele;
   });
-
+  const obj = {
+    firstname: "",
+    lastname: "",
+    email: "",
+    address: "",
+    phone: "",
+    cardnumber: "",
+    date: "",
+    security: "",
+  };
+  const handleChange = (e) => {
+    obj[e.target.name] = e.target.value;
+  };
+  const handleSubmit = (e) => {
+    if (
+      obj.firstname === "" ||
+      obj.lastname === "" ||
+      obj.email === "" ||
+      obj.address === "" ||
+      obj.phone === "" ||
+      obj.date === "" ||
+      obj.cardnumber === "" ||
+      obj.security === ""
+    ) {
+      alert("please fill all details");
+    } else {
+      alert("payment successfull");
+      setcartDetail([]);
+      Navigate("/");
+    }
+    console.log(obj);
+  };
   return (
     <Stack textAlign="left" bg="#f4f4f4">
-      <Flex justify="center" gap={4} w="70%" m="auto" pt={5}>
+      <Flex justify="center" gap={4} w="70%" m="auto" pt={5} pb={5}>
         <Stack w="70%">
           <Stack color="global.black" spacing={4}>
             <Stack bg="white" p={6}>
@@ -43,16 +75,20 @@ const Payment = () => {
               <Heading fontSize="lg" fontWeight="400">
                 Pickup or delivery
               </Heading>
-              <FormControl isRequired w="75%">
+              <FormControl isRequired w="75%" onChange={handleChange}>
                 <FormLabel fontWeight="normal" fontSize="13px">
                   Required
                 </FormLabel>
                 <FormLabel fontWeight="430">First name</FormLabel>
-                <Input borderRadius="none" />
+                <Input borderRadius="none" name="firstname" />
                 <FormLabel fontWeight="430">Last name</FormLabel>
-                <Input borderRadius="none" />
+                <Input borderRadius="none" name="lastname" />
                 <FormLabel fontWeight="430">Address</FormLabel>
-                <Input placeholder="Enter your address" borderRadius="none" />
+                <Input
+                  placeholder="Enter your address"
+                  borderRadius="none"
+                  name="address"
+                />
               </FormControl>
             </Stack>
             <Stack bg="white" p={6}>
@@ -72,15 +108,15 @@ const Payment = () => {
               <Heading fontSize="xl" fontWeight="400">
                 Contact info
               </Heading>
-              <FormControl isRequired w="75%">
+              <FormControl isRequired w="75%" onChange={handleChange}>
                 <FormLabel fontWeight="430">
                   Email (for order updates)
                 </FormLabel>
-                <Input borderRadius="none" type="email" />
+                <Input borderRadius="none" type="email" name="email" />
                 <FormLabel fontWeight="430">
                   Phone number (for order questions)
                 </FormLabel>
-                <Input borderRadius="none" type="phone" />
+                <Input borderRadius="none" type="phone" name="phone" />
               </FormControl>
             </Stack>
             <Stack bg="white" p={5}>
@@ -110,21 +146,22 @@ const Payment = () => {
                 <BsCreditCard2Front fontSize="32px" />
                 <Text>Credit Card</Text>
               </Flex>
-              <FormControl isRequired w="75%">
+              <FormControl isRequired w="75%" onChange={handleChange}>
                 <FormLabel fontWeight="430">Card number</FormLabel>
                 <Input
                   borderRadius="none"
+                  name="cardnumber"
                   //   type="tel"
                   //   inputmode="numeric"
                   //   pattern="[0-9\s]{13,19}"
                   //   maxlength="16"
                 />
                 <FormLabel fontWeight="430">Expiration date</FormLabel>
-                <Input borderRadius="none" type="date" />
+                <Input borderRadius="none" type="date" name="date" />
                 <FormLabel fontWeight="430" fontSize="md">
                   Security code
                 </FormLabel>
-                <Input borderRadius="none" />
+                <Input borderRadius="none" name="security" />
               </FormControl>
             </Stack>
             <Stack bg="white" p={10}>
@@ -154,6 +191,7 @@ const Payment = () => {
                 color="white"
                 fontWeight="normal"
                 _hover={buttonfilled}
+                onClick={handleSubmit}
               >
                 Pay
               </Button>
@@ -187,6 +225,7 @@ const Payment = () => {
             color="white"
             fontWeight="normal"
             _hover={buttonfilled}
+            onClick={handleSubmit}
           >
             Pay
           </Button>
