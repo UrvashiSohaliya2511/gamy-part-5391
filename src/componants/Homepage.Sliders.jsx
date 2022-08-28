@@ -20,89 +20,115 @@ import {
 } from "react-icons/md";
 import ProductModal from "../pages/ProductModal";
 function Topslider({ sliderdata }) {
-  let i = 0;
-  let ref = useRef();
+  // let i = 0;
+  // let ref = useRef();
 
-  const [data, setdata] = useState(sliderdata[0]);
-  const interval = () => {
-    if (ref !== undefined) return;
-    ref = setInterval(() => {
-      if (i === sliderdata.length) {
-        i = 0;
-      }
-      setdata(sliderdata[i]);
-      // console.log(i, sliderdata.length);
-      i++;
-    }, 3000);
-  };
-  useEffect(() => {
-    interval();
-    ref = undefined;
-  }, []);
+  // const [data, setdata] = useState(sliderdata[0]);
+  // const interval = () => {
+  //   if (ref !== undefined) return;
+  //   ref = setInterval(() => {
+  //     if (i === sliderdata.length) {
+  //       i = 0;
+  //     }
+  //     setdata(sliderdata[i]);
+  //     // console.log(i, sliderdata.length);
+  //     i++;
+  //   }, 3000);
+  // };
+  // useEffect(() => {
+  //   interval();
+  //   ref = undefined;
+  // }, []);
 
   return (
     <>
-      <Stack textAlign="left">
-        <Image src={data.image} alt="title" />
-        <Box>
-          <Heading
-            mt={[-20]}
-            size="lg"
-            color="global.black"
-            fontWeight="450"
-            pb={3}
-          >
-            {data.title}
-          </Heading>
-          <Text>{data.text}</Text>
-          <Link color="global.blue" textDecoration="underline">
-            Shop know
-          </Link>
-        </Box>
-      </Stack>
+      {" "}
+      <Carousel
+        infiniteLoop
+        showStatus={false}
+        autoPlay={true}
+        showIndicators={false}
+        showThumbs={false}
+      >
+        {sliderdata.map((ele, i) => {
+          return (
+            <Stack textAlign="left" key={i}>
+              <Image src={ele.image} alt="title" />
+              <Box>
+                <Heading
+                  mt={[-20]}
+                  size="lg"
+                  color="global.black"
+                  fontWeight="450"
+                  pb={3}
+                >
+                  {ele.title}
+                </Heading>
+                <Text>{ele.text}</Text>
+                <Link color="global.blue" textDecoration="underline">
+                  Shop know
+                </Link>
+              </Box>
+            </Stack>
+          );
+        })}
+      </Carousel>
     </>
   );
 }
 function Secondslider({ sliderdata }) {
-  let ref = useRef();
-  let i = 0;
-  const [data, setdata] = useState(sliderdata[0]);
-  const interval = () => {
-    if (ref !== undefined) return;
-    ref = setInterval(() => {
-      if (i === sliderdata.length) {
-        i = 0;
-      }
-      setdata(sliderdata[i]);
-      // console.log(i, sliderdata.length);
-      i++;
-    }, 5000);
-  };
-  useEffect(() => {
-    interval();
-    ref = undefined;
-  }, []);
+  // let ref = useRef();
+  // let i = 0;
+  // const [data, setdata] = useState(sliderdata[0]);
+  // const interval = () => {
+  //   if (ref !== undefined) return;
+  //   ref = setInterval(() => {
+  //     if (i === sliderdata.length) {
+  //       i = 0;
+  //     }
+  //     setdata(sliderdata[i]);
+  //     // console.log(i, sliderdata.length);
+  //     i++;
+  //   }, 5000);
+  // };
+  // useEffect(() => {
+  //   interval();
+  //   ref = undefined;
+  // }, []);
 
   return (
     <>
-      <Stack textAlign="left">
-        <Image src={data.image} alt="title" />
-        <Box>
-          <Heading
-            mt={[-20]}
-            size="lg"
-            color="global.black"
-            fontWeight="450"
-            pb={3}
-          >
-            {data.title}
-          </Heading>
-          <Text>{data.text}</Text>
-          <Link color="global.blue" textDecoration="underline">
-            Shop know
-          </Link>
-        </Box>
-      </Stack>
+      {" "}
+      <Carousel
+        infiniteLoop
+        showStatus={false}
+        autoPlay={true}
+        showIndicators={false}
+        showThumbs={false}
+      >
+        {sliderdata.map((ele) => {
+          return (
+            <Stack textAlign="left">
+              <Image src={ele.image} alt="title" />
+              <Box>
+                <Heading
+                  mt={[-20]}
+                  size="lg"
+                  color="global.black"
+                  fontWeight="450"
+                  pb={3}
+                >
+                  {ele.title}
+                </Heading>
+                <Text>{ele.text}</Text>
+                <Link color="global.blue" textDecoration="underline">
+                  Shop know
+                </Link>
+              </Box>
+            </Stack>
+          );
+        })}
+      </Carousel>
     </>
   );
 }
@@ -268,7 +294,6 @@ const Stars = ({ total }) => {
   );
 };
 export default function CarouselComponent({ data }) {
-  console.log(data);
   return (
     // <div className="carousel-wrapper">
 

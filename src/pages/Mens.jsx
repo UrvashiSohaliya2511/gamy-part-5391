@@ -16,13 +16,13 @@ import { Link as ReachLink } from "react-router-dom";
 import { textHover } from "../styles/styles.js";
 import {
   productList,
-  advtbar2,
+  advtbar2, 
   advtbar,
   secondlast,
   lastbar,
 } from "../componants/productlist.data";
 const Mens = () => {
-  console.log(productList.men);
+  
   return (
     <Stack p={7}>
       <Breadcrumb textAlign="left">
