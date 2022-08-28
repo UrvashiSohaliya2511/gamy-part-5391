@@ -22,8 +22,7 @@ import {
   secondlast,
   lastbar,
 } from "../componants/productlist.data";
-const Mens = () => {
-  console.log(productList.men);
+const Women = () => {
   return (
     <Stack p={7}>
       <Breadcrumb textAlign="left">
@@ -150,4 +149,4 @@ const Mens = () => {
   );
 };
 
-export default Mens;
+export default Women;

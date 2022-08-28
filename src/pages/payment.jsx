@@ -61,7 +61,6 @@ const Payment = () => {
       setcartDetail([]);
       Navigate("/");
     }
-    console.log(obj);
   };
   return (
     <Stack textAlign="left" bg="#f4f4f4">

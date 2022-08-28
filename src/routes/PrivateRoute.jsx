@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 const PrivateRoute = ({ children }) => {
   const navigate = useNavigate();
   const { isAuth } = useContext(AppContext);
-  console.log(isAuth);
+
   if (!isAuth) {
     navigate("/signin");
   } else {

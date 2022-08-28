@@ -141,7 +141,7 @@ function Alert({ product }) {
     const checkCart = cartDetail.filter((ele) => {
       return ele.title === product.title;
     });
-    console.log(checkCart);
+
     if (checkCart.length > 0) {
       toast({
         title: "Product is already in bag",
