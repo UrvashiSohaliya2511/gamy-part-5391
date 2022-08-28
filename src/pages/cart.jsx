@@ -1,6 +1,7 @@
 import React from "react";
 import { AppContext } from "../context/AppContext.jsx";
 import { useContext, useState } from "react";
+
 import {
   Button,
   Flex,
@@ -22,8 +23,10 @@ import { BsTruck } from "react-icons/bs";
 import { FiAlertCircle } from "react-icons/fi";
 import { buttonfilled } from "../styles/styles.js";
 import { BsBagCheck } from "react-icons/bs";
+import { useNavigate } from "react-router-dom";
 const Cart = () => {
   const [iscart, setiscart] = useState(true);
+  const navigate = useNavigate();
   let sum = 0;
   const { cartDetail, savedItems } = useContext(AppContext);
   cartDetail.map((ele) => {
@@ -31,6 +34,9 @@ const Cart = () => {
     return ele;
   });
 
+  const handleCheckout = () => {
+    navigate("/cart/payment");
+  };
   return (
     <div>
       <Stack p={12} pt={2} spacing={5} color="global.black">
@@ -151,6 +157,7 @@ const Cart = () => {
                     color="white"
                     fontWeight="normal"
                     _hover={buttonfilled}
+                    onClick={handleCheckout}
                   >
                     Check Out
                   </Button>
