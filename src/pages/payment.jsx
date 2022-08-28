@@ -151,6 +151,7 @@ const Payment = () => {
                 <Input
                   borderRadius="none"
                   name="cardnumber"
+                  maxlength="16"
                   //   type="tel"
                   //   inputmode="numeric"
                   //   pattern="[0-9\s]{13,19}"
@@ -161,7 +162,12 @@ const Payment = () => {
                 <FormLabel fontWeight="430" fontSize="md">
                   Security code
                 </FormLabel>
-                <Input borderRadius="none" name="security" />
+                <Input
+                  borderRadius="none"
+                  name="security"
+                  maxlength="3"
+                  placeholder="CVV"
+                />
               </FormControl>
             </Stack>
             <Stack bg="white" p={10}>

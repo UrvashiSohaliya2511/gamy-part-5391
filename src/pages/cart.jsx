@@ -158,6 +158,7 @@ const Cart = () => {
                     fontWeight="normal"
                     _hover={buttonfilled}
                     onClick={handleCheckout}
+                    visibility={sum < 1 ? "hidden" : "visible"}
                   >
                     Check Out
                   </Button>
