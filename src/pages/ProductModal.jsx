@@ -20,7 +20,7 @@ import { textHover, buttonNotfilled, buttonfilled } from "../styles/styles.js";
 import { Stars } from "../componants/Homepage.Sliders";
 import { BsTruck, BsFillBagFill } from "react-icons/bs";
 import { FiAlertCircle } from "react-icons/fi";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { AppContext } from "../context/AppContext.jsx";
 const ProductModal = ({ data }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();

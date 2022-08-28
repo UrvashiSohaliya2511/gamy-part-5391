@@ -18,7 +18,6 @@ import {
   productList,
   advtbar2,
   advtbar,
-  trendingNext,
   secondlast,
   lastbar,
 } from "../componants/productlist.data";

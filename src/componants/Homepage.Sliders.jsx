@@ -12,7 +12,7 @@ import {
   Radio,
   RadioGroup,
 } from "@chakra-ui/react";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { GrStar } from "react-icons/gr";
 import {
   MdOutlineArrowForwardIos,
