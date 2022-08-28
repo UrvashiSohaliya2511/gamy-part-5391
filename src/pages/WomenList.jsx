@@ -16,7 +16,7 @@ import {
 } from "@chakra-ui/react";
 import { AppContext } from "../context/AppContext";
 import { useContext } from "react";
-const MensList = () => {
+const WomenList = () => {
   const { state, dispatch } = useContext(AppContext);
 
   const [data, setdata] = useState([]);
@@ -157,4 +157,4 @@ const MensList = () => {
   );
 };
 
-export default MensList;
+export default WomenList;
