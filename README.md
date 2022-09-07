@@ -1,4 +1,4 @@
- # Project : [nordstromrack.com. ](https://nordstromrack.vercel.app) #
+ # Project : [Nordstromrack.com. ](https://nordstromrack.vercel.app) #
   
 
  
