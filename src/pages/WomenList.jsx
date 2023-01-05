@@ -24,9 +24,7 @@ const WomenList = () => {
     dispatch({ type: "Getdata" });
 
     axios
-      .get(
-        "https://json-server-mocker-started.herokuapp.com/women?type=clothes"
-      )
+      .get("https://nordstrom-2o0p.onrender.com/women?type=clothes")
       .then((res) => {
         setdata(res.data);
         dispatch({ type: "GetdataSuccess" });
@@ -66,7 +64,7 @@ const WomenList = () => {
 
     axios
       .get(
-        `https://json-server-mocker-started.herokuapp.com/women?type=clothes&category=${type}`
+        `https://nordstrom-2o0p.onrender.com/women?type=clothes&category=${type}`
       )
       .then((res) => {
         setdata(res.data);
@@ -77,9 +75,7 @@ const WomenList = () => {
   };
   const handledefault = () => {
     axios
-      .get(
-        "https://json-server-mocker-started.herokuapp.com/women?type=clothes"
-      )
+      .get("https://nordstrom-2o0p.onrender.com/women?type=clothes")
       .then((res) => {
         setdata(res.data);
       })

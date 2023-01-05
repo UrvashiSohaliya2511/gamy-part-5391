@@ -325,7 +325,7 @@ export const CommanProductSlider = () => {
   useEffect(() => {
     let arr = [];
 
-    fetch("https://json-server-mocker-started.herokuapp.com/women?type=clothes")
+    fetch("https://nordstrom-2o0p.onrender.com/women?type=clothes")
       .then((res) => res.json())
       .then((res) => {
         let c = res.length;
